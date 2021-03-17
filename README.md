@@ -12,18 +12,30 @@ mcr.microsoft.com/dotnet/sdk:5.0	.NET 5, with SDKs included, on Linux and Window
 
 We'll use the chunky one that's easy to get code with: mcr.microsoft.com/dotnet/sdk:5.0
 
-## docker file:
+## How to get a dotnet app hosted in a container
 
-https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-5.0
+https://docs.docker.com/engine/examples/dotnetcore/
 
-## URLs
+2021-3-17 - currently only dotnet 3.1 is available for docker images, but dotnet 5.0 sdk is out
 
-https://localhost:5001/swagger
+## Localhost Testing
 
-https://localhost:5001/weatherforecast
+```bash
+dotnet run
+curl -X GET -k https://localhost:5001/weatherforecast
+```
 
-## Commands
+## Build & Start the Container
 
 ``` bash
 docker build -t doc_raw .
+docker run -d -p 8080:80 --name doc_raw
+curl -X GET http://localhost:8080/weatherforecast
+```
+
+## Find & Stop the Container
+
+``` bash
+docker ps #find the name
+docker stop container_name
 ```

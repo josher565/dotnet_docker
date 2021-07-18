@@ -11,6 +11,9 @@ https://docs.docker.com/engine/examples/dotnetcore/
 2021-3-17 - currently only dotnet 3.1 is available for docker images, but dotnet 5.0 sdk is out
 
 ## Localhost Testing
+if you don't have dotnet locally run:
+`choco install dotnetcore`
+this assumes you have chocolatey installed.. it makes life easier and keeps ur fingers on the kb ;)
 
 ```bash
 dotnet run
